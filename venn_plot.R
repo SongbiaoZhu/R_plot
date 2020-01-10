@@ -22,20 +22,17 @@ geneList5 <- fullList[c(1700:1900,3000:4000)]
 
 # plot and export graph ---------------------------------------------------
 
-requiredPackages <- c("VennDiagram")
-for(p in requiredPackages){
-  if(!require(p,character.only = TRUE)) install.packages(p)
-  library(p,character.only = TRUE)
-}
+required.pkgs <- c("VennDiagram")
+pkgCheck(required.pkgs)
 # Pairwise Venn diagram
 pairList = list(geneList1, geneList2)
-picName = file.path(resDir, 'pairwiseVenn.tiff')
+picName = file.path(resDir, 'pairwiseVenn.png')
 catName = c('List1', 'List2')
 colorName = c('#FF3F40', '#4040FF')
-venn.diagram(
+venn.plot <- venn.diagram(
   # https://rdrr.io/cran/VennDiagram/man/venn.diagram.html
   x = pairList,
-  filename = picName,
+  filename = NULL,
   height = 3000,
   width = 3000,
   resolution =
@@ -77,15 +74,18 @@ venn.diagram(
   # parameters adjustment
   fill = colorName
 )
+png(picName)
+grid.draw(venn.plot)
+dev.off()
 # Triple Venn diagram
 tripleList = list(geneList1, geneList2, geneList3)
-picName = file.path(resDir, 'tripleVenn.tiff')
+picName = file.path(resDir, 'tripleVenn.png')
 catName = c('List1', 'List2', 'List3')
 colorName = c('#9796FE', '#FE9695', '#96FC8F')
-venn.diagram(
+venn.plot <- venn.diagram(
   # https://rdrr.io/cran/VennDiagram/man/venn.diagram.html
   x = tripleList,
-  filename = picName,
+  filename = NULL,
   height = 3000,
   width = 3000,
   resolution =
@@ -127,15 +127,18 @@ venn.diagram(
   # parameters adjustment
   fill = colorName
 )
+png(picName)
+grid.draw(venn.plot)
+dev.off()
 # Quad Venn diagram with four sets
 quadList = list(geneList1, geneList2, geneList3, geneList4)
-picName = file.path(resDir, 'quadVenn.tiff')
+picName = file.path(resDir, 'quadVenn.png')
 catName = c('List1', 'List2', 'List3', 'List4')
 colorName = c('#FFD280', '#FF8080', '#80FF80', '#8080FF')
-venn.diagram(
+venn.plot <- venn.diagram(
   # https://rdrr.io/cran/VennDiagram/man/venn.diagram.html
   x = quadList,
-  filename = picName,
+  filename = NULL,
   height = 3000,
   width = 3000,
   resolution =
@@ -177,15 +180,18 @@ venn.diagram(
   # parameters adjustment
   fill = colorName
 )
+png(picName)
+grid.draw(venn.plot)
+dev.off()
 # Quintuple Venn diagram with four sets
 quadList = list(geneList1, geneList2, geneList3, geneList4, geneList5)
-picName = file.path(resDir, 'quintupleVenn.tiff')
+picName = file.path(resDir, 'quintupleVenn.png')
 catName = c('List1', 'List2', 'List3', 'List4', 'List5')
 colorName = c('#90C8FF', '#FFDE94', '#FFBF82', '#A2E6BD', '#E6B4E6')
-venn.diagram(
+venn.plot <- venn.diagram(
   # https://rdrr.io/cran/VennDiagram/man/venn.diagram.html
   x = quadList,
-  filename = picName,
+  filename = NULL,
   height = 3000,
   width = 3000,
   resolution =
@@ -229,3 +235,6 @@ venn.diagram(
   cat.pos = c(0, 20, 0, 0, -20),
   cat.dist = 0.05
 )
+png(picName)
+grid.draw(venn.plot)
+dev.off()

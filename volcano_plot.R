@@ -44,16 +44,12 @@ summary(datVolcano$log2FC)
 
 # plot and export graph ---------------------------------------------------
 
-requiredPackages <- c("ggplot2", "ggThemeAssist", "ggrepel")
-for (p in requiredPackages) {
-  if (!require(p, character.only = TRUE))
-    install.packages(p)
-  library(p, character.only = TRUE)
-}
+required.pkgs <- c("ggplot2", "ggThemeAssist", "ggrepel")
+pkgCheck(required.pkgs)
 colorName = c("#0000FF", "grey15", "#FF0000")
-picName = file.path(resDir, 'volcano.jpeg')
-picNameText = file.path(resDir, 'volcano_text.jpeg')
-picNameTextsel = file.path(resDir, 'volcano_text_selected.jpeg')
+picName = file.path(resDir, 'volcano.png')
+picNameText = file.path(resDir, 'volcano_text.png')
+picNameTextsel = file.path(resDir, 'volcano_text_selected.png')
 
 # Volcano plot without point symbol labels
 
