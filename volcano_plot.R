@@ -54,11 +54,11 @@ colorName = c("#0000FF", "grey15", "#FF0000")
 picName = file.path(resDir, 'volcano.jpeg')
 picNameText = file.path(resDir, 'volcano_text.jpeg')
 picNameTextsel = file.path(resDir, 'volcano_text_selected.jpeg')
-x_title <- expression('Log'[2] * ' Treated / Control')
-y_title <- expression(paste("¨CLog " * italic("P"), " value"))
 
 # Volcano plot without point symbol labels
 
+x_title <- expression('Log'[2] * ' Treated / Control')
+y_title <- expression(paste("¨CLog " * italic("P"), " value"))
 x_limit <-
   c(floor(min(datVolcano$log2FC)), ceiling(max(datVolcano$log2FC)))
 y_limit <-
