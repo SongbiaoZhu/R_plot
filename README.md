@@ -26,5 +26,7 @@ GO or KEGG enrichment plot including the enrichment analysis step and plot step.
 
 You can also do the enrichment analysis with DAVID web tools or KEGG web tools , then plot the result.
 
+Recommend the clusterProfiler package written by Guangchuang Yu. He wrote a [book](https://yulab-smu.github.io/clusterProfiler-book/index.html) specifically talking about the enrichment analysis.
+
 ## Scatter plot showing the reproducibility
 
