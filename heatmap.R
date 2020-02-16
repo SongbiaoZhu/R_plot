@@ -49,7 +49,7 @@ ann_colors = list(
   )
 )
 pheatmap(
-	# https://rdrr.io/cran/pheatmap/man/pheatmap.html
+  # https://rdrr.io/cran/pheatmap/man/pheatmap.html
   datHeat,
   cluster_rows = T,
   cluster_cols = T,
@@ -63,3 +63,4 @@ pheatmap(
   annotation_colors = ann_colors,
   filename = picName
 )
+

@@ -79,11 +79,17 @@ bubblePlot <- bubblePlot + theme(
 )
 bubblePlot
 picName <- 'enrich_bubble_plot.png'
+if (F) {
+  ggsave(
+    plot = bubblePlot,
+    filename = file.path(resDir, picName),
+    width = 6,
+    height = 4.5,
+    units = c('in')
+  )
+}
 ggsave(
   plot = bubblePlot,
   filename = file.path(resDir, picName),
-  width = 6,
-  height = 4.5,
-  units = c('in')
+  dpi = 'screen'
 )
-
