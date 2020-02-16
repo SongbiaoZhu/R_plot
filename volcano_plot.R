@@ -1,4 +1,3 @@
-
 # global setting ----------------------------------------------------------
 
 rm(list = ls())
@@ -12,20 +11,21 @@ resDir = file.path(getwd(), 'res')
 publicDir = file.path(getwd(), 'public')
 
 # simulate data -----------------------------------------------------------
-# provide 4 numeric vectors, Accession|log2FC|ad.p.value|Symbol
+# dataframe, Accession|log2FC|ad.p.value|Symbol
 set.seed(1234)
-Accession <- paste0('Ser.No', 1:6000)
-log2FC <- rnorm(n = 6000, mean = 0, sd = 1)
-ad.p.value <- runif(n = 6000, min = 0.001, max = 0.999)
-Symbol <- paste0('gName', 1:6000)
+num <- 6000
+Accession <- paste0('Accession_', 1:num)
+log2FC <- rnorm(n = num, mean = 0, sd = 1)
+ad.p.value <- runif(n = num, min = 0.001, max = 0.999)
+Symbol <- paste0('gName', 1:num)
 datVolcano <- data.frame(
   Accession = Accession,
   log2FC = log2FC,
   ad.p.value = ad.p.value,
   Symbol = Symbol
 )
-ifelse(!exists("p_cut"), p_cut <- 0.05, print(as.character(p_cut)))
-ifelse(!exists("fc_cut"), fc_cut <-
+ifelse (!exists("p_cut"), p_cut <- 0.05, print(as.character(p_cut)))
+ifelse (!exists("fc_cut"), fc_cut <-
          1.5, print(as.character(fc_cut)))
 datVolcano$threshold = as.factor(datVolcano$ad.p.value < p_cut &
                                    (datVolcano$log2FC > log2(fc_cut) |
@@ -54,7 +54,7 @@ picNameTextsel = file.path(resDir, 'volcano_text_selected.png')
 # Volcano plot without point symbol labels
 
 x_title <- expression('Log'[2] * ' Treated / Control')
-y_title <- expression(paste("¨CLog " * italic("P"), " value"))
+y_title <- expression(paste("â€“Log " * italic("P"), " value"))
 x_limit <-
   c(floor(min(datVolcano$log2FC)), ceiling(max(datVolcano$log2FC)))
 y_limit <-
@@ -119,14 +119,9 @@ volcano_2 <- volcano +
   scale_color_manual(values = colorName,
                      guide = FALSE)
 volcano_2
-ggsave(
-  filename = picName,
-  plot = volcano_2,
-  width = 6,
-  height = 4.5,
-  units = "in",
-  dpi = 300
-)
+ggsave(filename = picName,
+       plot = volcano_2,
+       dpi = 'screen')
 
 # Volcano plot with all Threashold ==TRUE pointS symbol
 
@@ -140,18 +135,14 @@ volcano_text <- volcano_2 +
     point.padding = unit(0.3, "lines")
   )
 volcano_text
-ggsave(
-  filename = picNameText,
-  plot = volcano_text,
-  width = 6,
-  height = 4.5,
-  units = "in",
-  dpi = 300
-)
+ggsave(filename = picNameText,
+       plot = volcano_text,
+       dpi = 'screen')
 
 # Volcano plot with selected pointS symbol
 
-datLabelsel <- subset(datVolcano, threshold == TRUE & abs(log2FC) > 2)
+datLabelsel <-
+  subset(datVolcano, threshold == TRUE & abs(log2FC) > 2)
 
 volcano_textsel <- volcano_2 +
   geom_text_repel(
@@ -162,11 +153,6 @@ volcano_textsel <- volcano_2 +
     point.padding = unit(0.3, "lines")
   )
 volcano_textsel
-ggsave(
-  filename = picNameTextsel,
-  plot = volcano_textsel,
-  width = 6,
-  height = 4.5,
-  units = "in",
-  dpi = 300
-)
+ggsave(filename = picNameTextsel,
+       plot = volcano_textsel,
+       dpi = 'screen')
