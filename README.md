@@ -55,3 +55,11 @@ Recommend the clusterProfiler package written by Guangchuang Yu. He wrote a [boo
 **method**: the clusterProfiler package written by Guangchuang Yu
 
 **output**:  Gsea plot of the omics data.
+
+## Scatter plot showing the reproducibility
+
+**input**: dataframe with 2-columned data,  log2FC_rep1 | log2FC_rep2
+
+**method**: the ggplot2 and ggThemeAssist packages
+
+**output**:  scatter plot showing the correlation between two groups of data, with or without showing the adjusted R squared value.
