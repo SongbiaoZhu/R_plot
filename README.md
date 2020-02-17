@@ -40,7 +40,7 @@ You can also do the enrichment analysis with DAVID web tools or KEGG web tools ,
 
 Recommend the clusterProfiler package written by Guangchuang Yu. He wrote a [book](https://yulab-smu.github.io/clusterProfiler-book/index.html) specifically talking about the enrichment analysis.
 
-## enrichment_Bubble plot
+## Enrichment_Bubble plot
 
 **input**: GO or KEGG enrichment result by web-based applications or other softwares
 
@@ -48,7 +48,7 @@ Recommend the clusterProfiler package written by Guangchuang Yu. He wrote a [boo
 
 **output**: enrichment bubble plot showing the Gene ontology terms, Gene hits ratio, Gene number count, adjusted p.value
 
-## gsea_plot
+## Gsea_plot
 
 **input**: dataframe with 2-columned data, Accession | log2FC
 
@@ -71,3 +71,11 @@ Recommend the clusterProfiler package written by Guangchuang Yu. He wrote a [boo
 **method**: the ggplot2 and ggseqlogo packages
 
 **output**:  logo plot showing the motif sequence.
+
+## Ordered scatter plot
+
+**input**: dataframe with 2-columned data, Score (or Unique peptide number, etc) | Symbol
+
+**method**: the ggplot2 and ggrepel packages
+
+**output**:  scatter plot showing the score distribution, or unique peptides number distribution, with or without showing the top gene symbols.
