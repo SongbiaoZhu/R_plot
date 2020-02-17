@@ -63,3 +63,11 @@ Recommend the clusterProfiler package written by Guangchuang Yu. He wrote a [boo
 **method**: the ggplot2 and ggThemeAssist packages
 
 **output**:  scatter plot showing the correlation between two groups of data, with or without showing the adjusted R squared value.
+
+## Motif logo plot
+
+**input**: dna or amino acid sequence list, Or frequency matrix of sequence
+
+**method**: the ggplot2 and ggseqlogo packages
+
+**output**:  logo plot showing the motif sequence.
