@@ -20,6 +20,7 @@ required.pkgs <-
     "ggThemeAssist",
     "shiny")
 pkgCheck(required.pkgs)
-# simulate data -----------------------------------------------------------
+
+# simulate , or load data -----------------------------------------------------------
 
 # plot and export graph ---------------------------------------------------
