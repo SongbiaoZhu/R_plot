@@ -3,6 +3,7 @@
 ## Biological plot  with R!
 Tidy the useful plots in biology research with R scripts.
 Plot types including below described.
+You can check the result folder (**res**) to see the example plotting.
 
 ## Venn plot
 
